@@ -13,25 +13,25 @@ def generate_secret_code(color_amount, code_length)
 end
 
 def make_guess
-  puts 'Please Enter Code'
+  puts 'Please Enter a Code in the following format: 1234'
   gets.chomp.split('')
 end
 
 def check_guess(guessed_code, secret_code)
   response = []
   guessed_code.each_with_index do |value, index|
-    if secret_code.include?(value) && secret_code.find_index(value) == index
+    if secret_code.include?(value) && secret_code[index] == value
       response.push('Black')
-    elsif secret_code.include?(value) && secret_code.find_index(value) != index
+    elsif secret_code.include?(value) && secret_code[index] != value
       response.push('White')
     else
       response.push('Empty')
     end
   end
-  response
+  response.shuffle
 end
 
-secret_code = generate_secret_code(6, 4)
+secret_code = generate_secret_code(color_amount, code_length)
 p secret_code
 guessed_code = make_guess
 p guessed_code
