@@ -37,14 +37,13 @@ class Game
   end
 
   def check_round_result(checked_code_response)
-    return 'Wrong Code' unless checked_code_response.each { |i| i == 'Black' }
+    return 'Wrong Code' unless checked_code_response.uniq.size == 1
 
     'Correct Code!'
   end
 end
 
 game = Game.new(6, 4)
-
 secret_code = game.generate_secret_code(game.color_amount, game.code_length)
 p secret_code
 guessed_code = game.make_guess
