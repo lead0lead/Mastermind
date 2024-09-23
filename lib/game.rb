@@ -2,11 +2,12 @@
 
 # Responsible for all game logic
 class Game
-  attr_reader :color_amount, :code_length
+  attr_reader :color_amount, :code_length, :player_type
 
-  def initialize(color_amount, code_length)
+  def initialize(color_amount, code_length, player_type)
     @color_amount = color_amount
     @code_length = code_length
+    @player_type = player_type
   end
 
   def generate_secret_code(color_amount, code_length)
