@@ -37,7 +37,7 @@ class Game
   end
 
   def check_round_result(checked_code_response)
-    return 'Wrong Code' unless checked_code_response.uniq.size == 1
+    return 'Wrong Code' unless checked_code_response[0] == 'Black' && checked_code_response.uniq.size == 1
 
     'Correct Code!'
   end
