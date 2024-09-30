@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require_relative 'lib/computer_solver'
 require_relative 'lib/game'
 
 def play_game(color_amount, code_length, max_rounds, player_type)
@@ -18,6 +19,9 @@ def play_game(color_amount, code_length, max_rounds, player_type)
   end
   "Game lost! The correct code was #{secret_code}"
 end
+
+computer_solver = ComputerSolver.new('placeholder', 6, 4)
+p computer_solver.generate_possible_codes(6, 4)
 
 puts 'Please enter player type: human or computer'
 player_type = gets.chomp
